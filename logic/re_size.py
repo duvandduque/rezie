@@ -4,9 +4,9 @@ from io import BytesIO
 import base64
 from os import remove
 
-def re_size(url,id):
+def re_size(url,id,width,height):
     im = Image.open(requests.get(url, stream=True).raw)
-    new_image = im.resize((500, 500))
+    new_image = im.resize((width,height))
     filename=id+".png"
     new_image.save(filename)
     base64_bytes=""

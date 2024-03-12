@@ -6,6 +6,9 @@ import urllib.request
 class Image(BaseModel):
     id: str
     url: str
+    width:int
+    height:int
+
 
 class Images(BaseModel):
     images: List[Image]
@@ -21,7 +24,12 @@ def re_img(images: Images):
     for image in images.images:
         dict_response={}
         dict_response["id"]=image.id
-        response=re_size(image.url,image.id)
+        response=re_size(
+            image.url,
+            image.id,
+            image.width,
+            image.height
+            )
         dict_response["img_encode"]=response
         response_list.append(dict_response)
     # We return the results
