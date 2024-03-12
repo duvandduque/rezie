@@ -9,7 +9,7 @@ def re_img(images: Images):: Defines the function named re_img that takes a sing
 it can be run with the command:
 
 uvicorn main:app --reload
-Explanation of the command:
+## Explanation of the command:
 
 uvicorn: This is the name of the ASGI server that will be used to run the application.
 main:app: This indicates the module and function that should be executed. In this case, the module is main and the function is app.
