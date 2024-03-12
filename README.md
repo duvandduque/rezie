@@ -2,11 +2,19 @@ This Python code defines a function named re_img that handles image processing t
 
 Breakdown
 
-#Function Definition:
+# Function Definition:
 
 @router.post("/img"): This decorator likely indicates that the function handles POST requests sent to the /img endpoint within the application's routing mechanism.
 def re_img(images: Images):: Defines the function named re_img that takes a single argument named images. The expected type of this argument is likely a custom class or data structure named Images that holds information about the images to be processed.
-#Image Processing:
+it can be run with the command:
+
+uvicorn main:app --reload
+Explanation of the command:
+
+uvicorn: This is the name of the ASGI server that will be used to run the application.
+main:app: This indicates the module and function that should be executed. In this case, the module is main and the function is app.
+--reload: This option tells the server to automatically restart the application when changes are detected in the code.
+# Image Processing:
 
 response_list = []: Initializes an empty list named response_list to store the processed image data.
 for image in images.images:: Iterates through each image object within the images argument.
@@ -15,7 +23,7 @@ dict_response["id"] = image.id: Stores the image's ID in the dict_response under
 response = re_size(...): Calls a function named re_size (not shown in the provided code snippet), presumably responsible for resizing the image. The function likely takes the image's URL, ID, width, and height as arguments and returns the processed data.
 dict_response["img_encode"] = response: Stores the result of the re_size function (the processed image data) in the dict_response under the key "img_encode".
 response_list.append(dict_response): Appends the dict_response (containing the processed image information) to the response_list.
-#Returning the Results:
+# Returning the Results:
 
 return response_list: Returns the response_list, which now contains dictionaries with processed data for each image in the original images argument.
 Additional Notes
